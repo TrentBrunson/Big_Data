@@ -27,3 +27,4 @@ CREATE TABLE vine_table (
   vine TEXT
 );
 
+select * from products;
