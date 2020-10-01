@@ -1,24 +1,29 @@
--- Create Active User Table
-CREATE TABLE active_user (
- id INT PRIMARY KEY NOT NULL,
- first_name TEXT,
- last_name TEXT,
- username TEXT
+CREATE TABLE review_id_table (
+  review_id TEXT PRIMARY KEY NOT NULL,
+  customer_id INTEGER,
+  product_id TEXT,
+  product_parent INTEGER,
+  review_date DATE -- this should be in the formate yyyy-mm-dd
 );
 
-CREATE TABLE billing_info (
- billing_id INT PRIMARY KEY NOT NULL,
- street_address TEXT,
- state TEXT,
- username TEXT
+-- This table will contain only unique values
+CREATE TABLE products (
+  product_id TEXT PRIMARY KEY NOT NULL UNIQUE,
+  product_title TEXT
 );
 
-CREATE TABLE payment_info (
- billing_id INT PRIMARY KEY NOT NULL,
- cc_encrypted TEXT
+-- Customer table for first data set
+CREATE TABLE customers (
+  customer_id INT PRIMARY KEY NOT NULL UNIQUE,
+  customer_count INT
 );
 
--- Query database to check successful upload
-SELECT * FROM active_user;
-SELECT * FROM billing_info;
-SELECT * FROM payment_info;
+-- vine table
+CREATE TABLE vine_table (
+  review_id TEXT PRIMARY KEY,
+  star_rating INTEGER,
+  helpful_votes INTEGER,
+  total_votes INTEGER,
+  vine TEXT
+);
+
